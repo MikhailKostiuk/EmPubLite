@@ -1,16 +1,28 @@
 package com.example.empublite;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager mViewPager = null;
+    private ContentsAdapter mContentsAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+
+        mContentsAdapter = new ContentsAdapter(this);
+        mViewPager.setAdapter(mContentsAdapter);
+        findViewById(R.id.progressBar).setVisibility(View.GONE);
+        mViewPager.setVisibility(View.VISIBLE);
     }
 
     @Override
