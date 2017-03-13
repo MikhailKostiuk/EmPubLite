@@ -1,5 +1,6 @@
 package com.example.empublite;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,9 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.about: {
+                Intent intent = new Intent(this, SimpleContentActivity.class)
+                        .putExtra(SimpleContentActivity.EXTRA_FILE,
+                                "file:///android_asset/misc/about.html");
+                startActivity(intent);
                 return true;
             }
             case R.id.help: {
+                Intent intent = new Intent(this, SimpleContentActivity.class)
+                        .putExtra(SimpleContentActivity.EXTRA_FILE,
+                                "file:///android_asset/misc/help.html");
+                startActivity(intent);
                 return true;
             }
         }
